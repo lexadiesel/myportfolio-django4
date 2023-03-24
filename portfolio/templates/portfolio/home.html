@@ -1,0 +1,19 @@
+{%extends 'blog/base.html'%}
+{%block content%}
+<h1>Portfolio lexi</h1>
+
+<a href="{% url 'blog:all_blogs'%}">BLOG</a>
+{% load static%}
+
+<img src="{% static 'portfolio/братишки.jpg' %}">
+<br>
+<a href="{% static 'portfolio/Гайд.pdf' %}">гайд</a>
+{% for prospect in prospects %}
+<h2>{{prospect.title}}</h2>
+{% if prospect.url %}
+<a href="{{prospect.url}}">link</a>
+{%endif%}
+<h3>{{prospect.discription}}</h3>
+<img src="{{prospect.image.url }}">
+{%endfor%}
+{%endblock%}
